@@ -58,14 +58,14 @@ const questions = [
           ]
     },
     {
-    type: 'input',
-    name: 'contribute',
-    message: 'Please provide guidelines for contributing.',
-    }
+        type: 'input',
+        name: 'contribute',
+        message: 'How can someone contribute?',
+    },
     {
         type: 'input',
         name: 'ApplicationTests',
-        message: 'Does this project have any test conditions? If yes, please list them here.',
+        message: 'Does this project have any test conditions?',
       },    
 ];
 
