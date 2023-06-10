@@ -23,30 +23,30 @@ const questions = [
     {
         type: 'input',
         name: 'what',
-        message: 'What is your project and what problem will it solve?',
+        message: 'Describe your project and the problem it solves:',
     },
     {
         type: 'input',
         name: 'why',
-        message: 'Why did you create this project?',
+        message: 'What motivated you to create this project?',
     },
     {
         type: 'input',
         name: 'how',
-        message: 'How will someone use this?',
+        message: 'Explain how someone can use this project:',
     },
     {
         type: 'input',
         name: 'installation',
-        message: 'Please provide step-by-step installation instructions for your project.',
+        message: 'Please provide step-by-step installation instructions:',
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'Please provide instructions and examples for use.',
+        message: 'Please provide instructions and usage examples:',
     },
     {
-    type: 'list',
+        type: 'list',
         name: 'license',
         message: 'Which license will you use for your project?',
         choices: [
@@ -55,18 +55,18 @@ const questions = [
             'IBM',
             'Mozilla',
             'Unlicensed',
-          ]
+        ]
     },
     {
         type: 'input',
         name: 'contribute',
-        message: 'How can someone contribute?',
+        message: 'How can others contribute to this project?',
     },
     {
         type: 'input',
-        name: 'ApplicationTests',
+        name: 'applicationTests',
         message: 'Does this project have any test conditions?',
-      },    
+    },    
 ];
 
 // TODO: Create a function to write README file
@@ -81,7 +81,16 @@ function writeToFile(fileName, data) {
   }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    // Prompt the user with questions
+    inquirer.prompt(questions).then((answers) => {
+        // Generate the markdown content
+        const markdownContent = generateMarkdown(answers);
+
+        // Write the markdown content to a README file
+        writeToFile('README.md', markdownContent);
+    });
+}
 
 // Function call to initialize app
 init();
