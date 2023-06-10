@@ -70,7 +70,15 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(fileName, data), (err) =>{
+        if(err){
+          console.log('Error!');
+        } else {
+          console.log('Success!');
+        }
+      };
+  }
 
 // TODO: Create a function to initialize app
 function init() {}
